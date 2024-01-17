@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c415fcf9-891f-40b6-8ef1-ec35d17c4872" name="Changes" comment="feat: vcs" />
+    <list default="true" id="c415fcf9-891f-40b6-8ef1-ec35d17c4872" name="Changes" comment="feat: first configuration">
+      <change beforePath="$PROJECT_DIR$/core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/settings.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,7 +15,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="first-config" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -27,20 +29,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/lerson/Projects/Challenges/teste_bringel&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "apps-module",
+    "last_opened_file_path": "/home/lerson/Projects/Challenges/teste_bringel",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="teste_bringel" />
@@ -75,6 +77,7 @@
       <updated>1705525995645</updated>
       <workItem from="1705525996710" duration="1195000" />
       <workItem from="1705534101804" duration="917000" />
+      <workItem from="1705535098124" duration="343000" />
     </task>
     <task id="LOCAL-00001" summary="feat: created ./idea .gitignore">
       <option name="closed" value="true" />
@@ -100,7 +103,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705534813053</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: created python gitignore">
+      <option name="closed" value="true" />
+      <created>1705535188291</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1705535188291</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: first configuration">
+      <option name="closed" value="true" />
+      <created>1705535345100</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1705535345100</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,8 +138,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: created ./idea .gitignore" />
-    <MESSAGE value="feat: first configuration" />
     <MESSAGE value="feat: vcs" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: vcs" />
+    <MESSAGE value="feat: created python gitignore" />
+    <MESSAGE value="feat: first configuration" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: first configuration" />
   </component>
 </project>
