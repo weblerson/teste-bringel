@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c415fcf9-891f-40b6-8ef1-ec35d17c4872" name="Changes" comment="feat: first authentication migration">
-      <change beforePath="$PROJECT_DIR$/apps/authentication/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/authentication/models.py" afterDir="false" />
+    <list default="true" id="c415fcf9-891f-40b6-8ef1-ec35d17c4872" name="Changes" comment="feat &lt;settings&gt;: installed rest_framework">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/authentication/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/authentication/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/authentication/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/authentication/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,21 +39,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "first-authentication-migration",
-    "last_opened_file_path": "/home/lerson/Projects/Challenges/teste_bringel",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;authentication-views&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/lerson/Projects/Challenges/teste_bringel&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager">
+}</component>
+  <component name="RunManager" selected="Django Server.teste_bringel">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="teste_bringel" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -73,6 +76,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="teste_bringel" type="Python.DjangoServer" factoryName="Django server">
+      <module name="teste_bringel" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -85,6 +111,7 @@
       <workItem from="1705525996710" duration="1195000" />
       <workItem from="1705534101804" duration="917000" />
       <workItem from="1705535098124" duration="343000" />
+      <workItem from="1705593543884" duration="2397000" />
     </task>
     <task id="LOCAL-00001" summary="feat: created ./idea .gitignore">
       <option name="closed" value="true" />
@@ -142,7 +169,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705540155629</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat &lt;authentication&gt;: created CustomerSerializer">
+      <option name="closed" value="true" />
+      <created>1705542510971</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1705542510971</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat &lt;settings&gt;: installed rest_framework">
+      <option name="closed" value="true" />
+      <created>1705593775526</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1705593775526</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +209,8 @@
     <MESSAGE value="feat: first configuration" />
     <MESSAGE value="feat: created Customer model from AbstractUser" />
     <MESSAGE value="feat: first authentication migration" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: first authentication migration" />
+    <MESSAGE value="feat &lt;authentication&gt;: created CustomerSerializer" />
+    <MESSAGE value="feat &lt;settings&gt;: installed rest_framework" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat &lt;settings&gt;: installed rest_framework" />
   </component>
 </project>
