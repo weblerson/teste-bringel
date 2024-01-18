@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'authentication',
 
     # Third
-    'rest_framework'
+    'rest_framework',
+    'oauth2_provider'
 ]
 
 MIDDLEWARE = [
@@ -136,3 +137,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'authentication.Customer'
+
+# REST Framework
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    )
+}
