@@ -143,5 +143,22 @@ AUTH_USER_MODEL = 'authentication.Customer'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    ),
+
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
     )
+}
+
+# OAuth2
+
+LOGIN_URL = '/admin/login/'
+
+OAUTH2_PROVIDER = {
+    'SCOPES': {
+        'read': 'Read scope',
+        'write': 'Write scope',
+        'groups': 'Access to your groups'
+    },
+    'ACCESS_TOKEN_EXPIRE_SECONDS': 36000,
 }
