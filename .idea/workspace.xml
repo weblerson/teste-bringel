@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c415fcf9-891f-40b6-8ef1-ec35d17c4872" name="Changes" comment="feat: first configuration" />
+    <list default="true" id="c415fcf9-891f-40b6-8ef1-ec35d17c4872" name="Changes" comment="feat: first authentication migration">
+      <change beforePath="$PROJECT_DIR$/apps/authentication/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/authentication/models.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +41,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "first-authentication-migration",
     "last_opened_file_path": "/home/lerson/Projects/Challenges/teste_bringel",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -132,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705539858593</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="feat: first authentication migration">
+      <option name="closed" value="true" />
+      <created>1705540155629</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1705540155629</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,6 +165,7 @@
     <MESSAGE value="feat: created python gitignore" />
     <MESSAGE value="feat: first configuration" />
     <MESSAGE value="feat: created Customer model from AbstractUser" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: created Customer model from AbstractUser" />
+    <MESSAGE value="feat: first authentication migration" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: first authentication migration" />
   </component>
 </project>
