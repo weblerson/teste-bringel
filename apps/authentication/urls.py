@@ -11,6 +11,10 @@ router.register(r'customers', views.CustomerViewSet, basename='customer')
 urlpatterns = [
     path('', include(router.urls)),
 
+    # OAuth
+    path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+
+    # JWT
     path(
         'token/',
         views.AuthenticationViewSet.as_view({'get': 'generate_jwt_token_for_customer'}),
