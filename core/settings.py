@@ -50,7 +50,8 @@ INSTALLED_APPS = [
 
     # Third
     'rest_framework',
-    'oauth2_provider'
+    'oauth2_provider',
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -142,7 +143,7 @@ AUTH_USER_MODEL = 'authentication.Customer'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+        'authentication.authentication.JWTAuthentication',
     ),
 
     'DEFAULT_PERMISSION_CLASSES': (
