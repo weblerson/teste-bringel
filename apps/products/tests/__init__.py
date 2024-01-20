@@ -2,3 +2,4 @@ from .product_serializer_tests import ProductSerializerTests
 from .supplier_serializer_tests import SupplierSerializerTests
 from .tag_serializer_tests import TagSerializerTests
 from .price_history_serializer_tests import PriceHistorySerializerTests
+from .review_serializer_tests import ReviewSerializerTests
