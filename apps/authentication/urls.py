@@ -18,7 +18,7 @@ urlpatterns = [
     path(
         'token/',
         views.AuthenticationViewSet.as_view({'get': 'generate_jwt_token_for_customer'}),
-        name='generate_jwt_token_for_customer'
+        name='token_obtain_pair'
     ),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
