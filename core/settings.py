@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
     # Application
     'authentication',
+    'products',
 
     # Third
     'rest_framework',
