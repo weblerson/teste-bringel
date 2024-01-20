@@ -1,1 +1,2 @@
 from .product_serializer_tests import ProductSerializerTests
+from .supplier_serializer_tests import SupplierSerializerTests
