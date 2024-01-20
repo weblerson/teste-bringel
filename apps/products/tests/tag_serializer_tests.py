@@ -21,7 +21,7 @@ class TagSerializerTests(test.APITestCase):
             'name': 'Test Science Product',
             'description': 'Test Description',
             'category': 1,
-            'supplier': supplier.id
+            'supplier': supplier
         }
         product: Product = Product.objects.create(**test_product_data)
 
@@ -55,7 +55,7 @@ class TagSerializerTests(test.APITestCase):
         self.assertIsNotNone(created)
 
         self.assertEqual(created.name, self.test_data.get('name'))
-        self.assertEqual(created.product.id, self.test_data.get('address'))
+        self.assertEqual(created.product.id, self.test_data.get('product'))
 
     def test_if_tag_serializer_returns_the_correct_json(self):
         """
