@@ -20,4 +20,4 @@ class PriceHistorySerializer(serializers.ModelSerializer):
             last.end = timezone.now()
             last.save()
 
-        super().create(validated_data)
+        return super().create(validated_data)
