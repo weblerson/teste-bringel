@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="c415fcf9-891f-40b6-8ef1-ec35d17c4872" name="Changes" comment="feat &lt;core.urls&gt;: included oauth2 provider urls">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/authentication/tests.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/authentication/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/authentication/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/authentication/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/authentication/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +44,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "oauth-simplejwt",
+    "git-widget-placeholder": "authentication-tests",
     "last_opened_file_path": "/home/lerson/Projects/Challenges/teste_bringel",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -55,7 +53,28 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Django Server.teste_bringel">
+  <component name="RunManager" selected="Django tests.Django Tests">
+    <configuration name="Django Tests" type="DjangoTestsConfigurationType">
+      <module name="teste_bringel" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="$USER_HOME$/.cache/pypoetry/virtualenvs/teste-bringel-RvG2G-yp-py3.12/bin/python3.12" />
+      <option name="SDK_NAME" value="Poetry (teste_bringel)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="TARGET" value="apps" />
+      <option name="SETTINGS_FILE" value="" />
+      <option name="CUSTOM_SETTINGS" value="false" />
+      <option name="USE_OPTIONS" value="false" />
+      <option name="OPTIONS" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="teste_bringel" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -86,7 +105,8 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="core.settings" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="$USER_HOME$/.cache/pypoetry/virtualenvs/teste-bringel-RvG2G-yp-py3.12/bin/python3.12" />
+      <option name="SDK_NAME" value="Poetry (teste_bringel)" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -102,6 +122,11 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Django Server.teste_bringel" />
+      <item itemvalue="Django tests.Django Tests" />
+      <item itemvalue="Python.main" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -253,5 +278,8 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/teste_bringel$Django_Tests.coverage" NAME="Django Tests Coverage Results" MODIFIED="1705687937285" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>
