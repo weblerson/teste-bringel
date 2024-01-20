@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c415fcf9-891f-40b6-8ef1-ec35d17c4872" name="Changes" comment="feat &lt;core.urls&gt;: included oauth2 provider urls">
+    <list default="true" id="c415fcf9-891f-40b6-8ef1-ec35d17c4872" name="Changes" comment="feat &lt;apps&gt;: started 'products' app">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/authentication/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/authentication/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/authentication/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/core/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/products/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/products/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,20 +37,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;authentication-tests&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/lerson/Projects/Challenges/teste_bringel&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "products-models",
+    "last_opened_file_path": "/home/lerson/Projects/Challenges/teste_bringel",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Django tests.Django Tests">
     <configuration name="Django Tests" type="DjangoTestsConfigurationType">
       <module name="teste_bringel" />
@@ -140,6 +138,7 @@
       <workItem from="1705534101804" duration="917000" />
       <workItem from="1705535098124" duration="343000" />
       <workItem from="1705593543884" duration="2397000" />
+      <workItem from="1705712758944" duration="1939000" />
     </task>
     <task id="LOCAL-00001" summary="feat: created ./idea .gitignore">
       <option name="closed" value="true" />
@@ -237,7 +236,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705623182472</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="feat &lt;apps&gt;: started 'products' app">
+      <option name="closed" value="true" />
+      <created>1705713051917</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1705713051917</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,18 +273,8 @@
     <MESSAGE value="feat &lt;settings&gt;: installed django oauth toolkit" />
     <MESSAGE value="feat &lt;core.urls&gt;: included oauth2 provider urls" />
     <MESSAGE value="close" />
-    <option name="LAST_COMMIT_MESSAGE" value="close" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/authentication/authentication.py</url>
-          <line>7</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="feat &lt;apps&gt;: started 'products' app" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat &lt;apps&gt;: started 'products' app" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/teste_bringel$Django_Tests.coverage" NAME="Django Tests Coverage Results" MODIFIED="1705687937285" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
