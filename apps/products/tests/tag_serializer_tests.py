@@ -4,7 +4,7 @@ from ..models import Supplier, Tag, Product
 from ..serializers import TagSerializer
 
 
-class SupplierSerializerTests(test.APITestCase):
+class TagSerializerTests(test.APITestCase):
 
     @classmethod
     def setUpTestData(cls):
