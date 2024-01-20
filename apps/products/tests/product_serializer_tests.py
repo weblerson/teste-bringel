@@ -113,6 +113,23 @@ class ProductSerializerTests(test.APITestCase):
 
         self.assertEqual(created.sku, self.expected_sku)
 
+    def test_if_product_serializer_returns_the_correct_json(self):
+        """
+        Tests if product serializer returns the correct JSON
+        """
+
+        json = self.test_data.copy()
+        json['sku'] = self.expected_sku
+        json['average_review'] = 0.0
+        json['customers'] = []
+        json['id'] = 1
+
+        serializer: ProductSerializer = ProductSerializer(data=self.test_data)
+        serializer.is_valid()
+        serializer.save()
+
+        self.assertDictEqual(json, serializer.data)
+
     def test_if_product_serializer_is_updating_average_review(self):
         """
         Tests if product serializer is updating the product's average review automatically
