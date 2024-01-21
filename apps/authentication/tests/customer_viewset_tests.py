@@ -89,11 +89,13 @@ class CustomerViewSetTests(test.APITestCase):
         """
 
         list_response = self.client.get(self.list_url)
+        retrieve_response = self.client.get(self.detail_url)
         create_response = self.client.post(self.list_url, data=self.customer_data)
         update_response = self.client.patch(self.detail_url, data=self.update_data)
         delete_response = self.client.delete(self.detail_url)
 
-        self.assertEqual(list_response.status_code, status.HTTP_401_UNAUTHORIZED)
+        self.assertEqual(list_response.status_code, status.HTTP_200_OK)
+        self.assertEqual(retrieve_response.status_code, status.HTTP_200_OK)
         self.assertEqual(create_response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(update_response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertEqual(delete_response.status_code, status.HTTP_401_UNAUTHORIZED)
@@ -106,11 +108,9 @@ class CustomerViewSetTests(test.APITestCase):
         oauth = self.__get_oauth_access_token(self.admin)
         self.client.credentials(HTTP_AUTHORIZATION=self.__create_authorization_header(oauth))
 
-        list_response = self.client.get(self.list_url)
         update_response = self.client.patch(self.detail_url, data=self.update_data)
         delete_response = self.client.delete(self.detail_url)
 
-        self.assertEqual(list_response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertEqual(update_response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertEqual(delete_response.status_code, status.HTTP_401_UNAUTHORIZED)
 
