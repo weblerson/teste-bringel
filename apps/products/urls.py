@@ -11,5 +11,11 @@ router.register(r'prices', views.PriceHistoryViewSet, basename='price')
 router.register(r'reviews', views.ReviewViewSet, basename='review')
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('', include(router.urls)),
+
+    path(
+        'products/categories/<int:pk>/',
+        views.RecommendationAlgorithmViewSet.as_view({'get': 'list_related_products'}),
+        name='related_products'
+    ),
 ]
