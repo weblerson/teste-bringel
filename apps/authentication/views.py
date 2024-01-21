@@ -31,7 +31,7 @@ class CustomerViewSet(viewsets.ModelViewSet):
 
     def get_permissions(self):
         match self.action:
-            case 'create':
+            case 'list' | 'retrieve' | 'create':
                 permission_classes = [permissions.AllowAny]
 
             case _:
