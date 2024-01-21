@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'oauth2_provider',
     'rest_framework_simplejwt',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -153,6 +154,8 @@ REST_FRAMEWORK = {
 
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10,
+
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema'
 }
 
 # OAuth2
@@ -176,3 +179,12 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_ACCEPT_CONTENT = ['json']
 CELERY_TIMEZONE = 'America/Sao_Paulo'
 CELERY_ENABLE_UTC = True
+
+# DRF Spectacular
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'API do Desafio',
+    'DESCRIPTION': 'Projeto realizado a fim de cumprir com os requisitos do desafio técnico proposto.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False
+}
