@@ -3,7 +3,10 @@ from rest_framework import test
 from ..models import Review, Supplier, Product
 from authentication.models import Customer
 
+from unittest.mock import patch
+
 from ..serializers import ReviewSerializer
+from ..tasks import update_product_average_review
 
 
 class ReviewSerializerTests(test.APITestCase):
@@ -41,6 +44,12 @@ class ReviewSerializerTests(test.APITestCase):
             'product': product.id,
             'customer': customer.id,
             'value': 4.5
+        }
+
+        cls.new_review_test_data = {
+            'product': product.id,
+            'customer': customer.id,
+            'value': 3.0
         }
 
         cls.update_test_data = {
@@ -111,9 +120,28 @@ class ReviewSerializerTests(test.APITestCase):
 
         self.assertDictEqual(expected_json, serializer.data)
 
-    def test_if_the_average_review_changes_automatically_when_another_review_instance_is_created(self):
+    @patch('products.tasks.update_product_average_review.delay')
+    def test_if_the_average_review_changes_automatically_when_another_review_instance_is_created(
+            self,
+            update_product_average_review_mock
+    ):
         """
         Tests if the average review of a product changes automatically when another review instance is created
         """
 
-        ...
+        first_review: Review = self.__create_review_instance(self.test_data)
+        product: Product = Product.objects.get(pk=first_review.product.id)
+
+        update_product_average_review_mock.assert_called_once_with(first_review.product.id)
+
+        self.assertEqual(first_review.product, product)
+        self.assertEqual(product.average_review, self.test_data.get('value'))
+
+        # self.__create_review_instance(self.new_review_test_data)
+        # product: Product = Product.objects.get(pk=first_review.product.id)
+        #
+        # update_product_average_review(first_review.product.id)
+        #
+        # average = (self.test_data.get('value') + self.new_review_test_data.get('value')) / 2
+        # self.assertEqual(first_review.product, product)
+        # self.assertEqual(product.average_review, average)
