@@ -19,6 +19,16 @@ class CustomerViewSet(viewsets.ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
 
+    def destroy(self, request, *args, **kwargs):
+        """
+        A customer cannot remove an account that is not theirs
+        """
+        customer: Customer = self.get_object()
+        if request.user != customer:
+            return Response(status=status.HTTP_403_FORBIDDEN)
+
+        return super().destroy(request, *args, **kwargs)
+
     def get_permissions(self):
         match self.action:
             case 'create':
