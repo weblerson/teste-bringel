@@ -4,3 +4,4 @@ from .tag_serializer_tests import TagSerializerTests
 from .price_history_serializer_tests import PriceHistorySerializerTests
 from .review_serializer_tests import ReviewSerializerTests
 from .product_viewset_tests import ProductViewSetTests
+from .supplier_viewset_tests import SupplierViewSetTests
