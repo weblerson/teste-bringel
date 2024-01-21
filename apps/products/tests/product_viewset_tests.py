@@ -112,7 +112,7 @@ class ProductViewSetTests(test.APITestCase):
         serializer: CustomerSerializer = CustomerSerializer(data=customer_data)
         serializer.is_valid()
 
-        update_serializer: ProductSerializer = ProductSerializer()
+        update_serializer: CustomerSerializer = CustomerSerializer()
 
         customer: Customer = serializer.create(serializer.validated_data)
         customer = update_serializer.update(customer, {'is_staff': True})
