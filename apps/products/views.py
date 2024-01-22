@@ -94,7 +94,6 @@ class PriceHistoryViewSet(mixins.ListModelMixin,
 class ReviewViewSet(mixins.ListModelMixin,
                     mixins.CreateModelMixin,
                     mixins.UpdateModelMixin,
-                    mixins.RetrieveModelMixin,
                     mixins.DestroyModelMixin,
                     viewsets.GenericViewSet):
 
