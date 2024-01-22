@@ -6,10 +6,11 @@ from .models import Customer
 class CustomerSerializer(serializers.ModelSerializer):
 
     password = serializers.CharField(max_length=128, write_only=True)
+    is_staff = serializers.BooleanField(default=False, write_only=True)
 
     class Meta:
         model = Customer
-        fields = ['id', 'username', 'email', 'password']
+        fields = ['id', 'username', 'email', 'password', 'is_staff']
 
     def create(self, validated_data):
         customer = Customer.objects.create_user(
