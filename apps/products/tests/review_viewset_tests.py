@@ -109,6 +109,15 @@ class ReviewViewSetTests(test.APITestCase):
         self.client.credentials(HTTP_AUTHORIZATION=self.__create_authorization_header(access))
 
     @staticmethod
+    def __generate_review(review_data):
+        serializer: ReviewSerializer = ReviewSerializer(data=review_data)
+        serializer.is_valid()
+
+        instance: Review = serializer.save()
+
+        return instance
+
+    @staticmethod
     def __get_customer(customer_data):
         serializer: CustomerSerializer = CustomerSerializer(data=customer_data)
         serializer.is_valid()
@@ -212,3 +221,25 @@ class ReviewViewSetTests(test.APITestCase):
 
         self.assertEqual(delete_response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertFalse(review.exists())
+
+    def test_if_the_product_average_review_changes_when_another_review_is_created(self):
+        """
+        Tests if the product average review changes when another review is created
+        """
+
+        self.__authenticate(self.customer)
+
+        first_response = self.client.post(self.list_url, data=self.review_data)
+        first_value = first_response.data.get('value')
+
+        product: Product = Product.objects.get(pk=first_response.data.get('product'))
+
+        self.assertEqual(product.average_review, first_value)
+
+        second_response = self.client.post(self.list_url, data=self.new_review_data)
+        second_value = second_response.data.get('value')
+
+        product = Product.objects.get(pk=first_response.data.get('product'))
+        average = (first_value + second_value) / 2
+
+        self.assertEqual(product.average_review, average)
