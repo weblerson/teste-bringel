@@ -8,7 +8,7 @@ class CustomerSerializerTests(test.APITestCase):
 
     @classmethod
     def setUpTestData(cls):
-        cls.fields = ('id', 'username', 'email', 'password')
+        cls.fields = ('id', 'username', 'email', 'password', 'is_staff')
 
         cls.test_data = {
             'username': 'testuser',
