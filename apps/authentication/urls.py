@@ -12,7 +12,7 @@ urlpatterns = [
     path('', include(router.urls)),
 
     # OAuth
-    path('o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+    path('o/', views.TokenApiView.as_view(), name='token-api-view'),
 
     # JWT
     path(
