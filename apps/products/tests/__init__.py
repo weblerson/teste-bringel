@@ -7,3 +7,4 @@ from .product_viewset_tests import ProductViewSetTests
 from .supplier_viewset_tests import SupplierViewSetTests
 from .tag_viewset_tests import TagViewSetTests
 from .review_viewset_tests import ReviewViewSetTests
+from .price_history_viewset_tests import PriceHistoryViewSetTests
