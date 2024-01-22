@@ -6,3 +6,4 @@ class Customer(AbstractUser):
 
     class Meta:
         verbose_name = 'Customer'
+        ordering = ['id']

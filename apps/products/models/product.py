@@ -11,6 +11,9 @@ from authentication.models import Customer
 
 class Product(models.Model):
 
+    class Meta:
+        ordering = ['id']
+
     class Category(models.IntegerChoices):
         SCIENCE = 1, _('Science')
         FICTION = 2,  _('Fiction')
