@@ -16,3 +16,11 @@ class ReviewSerializer(serializers.ModelSerializer):
         update_product_average_review.delay(instance.product.id)
 
         return instance
+
+    def update(self, instance: Review, validated_data):
+        from ..tasks import update_product_average_review
+
+        instance: Review = super().update(instance, validated_data)
+        update_product_average_review.delay(instance.product.id)
+
+        return instance
