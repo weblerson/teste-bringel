@@ -195,7 +195,7 @@ class ReviewViewSetTests(test.APITestCase):
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
-    def test_id_destroy_is_deleting_an_existing_review(self):
+    def test_if_destroy_is_deleting_an_existing_review(self):
         """
         Tests if review view set destroy action is deleting an existing review
         """
