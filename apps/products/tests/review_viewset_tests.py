@@ -160,7 +160,7 @@ class ReviewViewSetTests(test.APITestCase):
 
     def test_if_create_is_creating_new_review(self):
         """
-        Tests if review view set create action is creating new suppliers
+        Tests if review view set create action is creating new reviews
         """
 
         self.__authenticate(self.customer)
