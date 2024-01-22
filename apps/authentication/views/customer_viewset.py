@@ -1,20 +1,13 @@
 from rest_framework import viewsets
 from rest_framework import permissions
 
-from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework import status
 
-from rest_framework.decorators import action
+from drf_spectacular.utils import extend_schema, extend_schema_view, OpenApiExample
 
-from rest_framework_simplejwt.tokens import RefreshToken
-
-from oauth2_provider.contrib.rest_framework.authentication import OAuth2Authentication
-
-from drf_spectacular.utils import extend_schema, extend_schema_view, OpenApiParameter, OpenApiExample, OpenApiResponse, inline_serializer
-
-from .models import Customer
-from .serializers import CustomerSerializer
+from ..models import Customer
+from ..serializers import CustomerSerializer
 
 
 @extend_schema_view(
@@ -150,18 +143,3 @@ class CustomerViewSet(viewsets.ModelViewSet):
                 permission_classes = [permissions.IsAuthenticated]
 
         return [permission() for permission in permission_classes]
-
-
-class AuthenticationViewSet(viewsets.ViewSet):
-
-    authentication_classes = [OAuth2Authentication]
-
-    @staticmethod
-    @action(detail=False, url_path='')
-    def generate_jwt_token_for_customer(request: Request):
-        refresh = RefreshToken.for_user(request.user)
-
-        return Response({
-            'refresh': str(refresh),
-            'access': str(refresh.access_token)
-        }, status=status.HTTP_200_OK)
