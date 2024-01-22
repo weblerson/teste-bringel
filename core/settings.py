@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Application
+    'spectacular_swagger',
     'authentication',
     'products',
 
@@ -145,6 +146,7 @@ AUTH_USER_MODEL = 'authentication.Customer'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
         'authentication.authentication.JWTAuthentication',
     ),
 
