@@ -1,6 +1,10 @@
 from rest_framework import viewsets
 from rest_framework import permissions
 
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+from django.views.decorators.vary import vary_on_headers
+
 from rest_framework.response import Response
 from rest_framework import status
 
@@ -116,6 +120,15 @@ from ..serializers import CustomerSerializer
 class CustomerViewSet(viewsets.ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
+
+    @method_decorator(cache_page(60))
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
+
+    @method_decorator(cache_page(30))
+    @method_decorator(vary_on_headers('Authorization'))
+    def retrieve(self, request, *args, **kwargs):
+        return super().retrieve(request, *args, **kwargs)
 
     @extend_schema(
         description='Delete a customer',

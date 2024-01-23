@@ -2,6 +2,10 @@ from rest_framework import viewsets
 from rest_framework import mixins
 from rest_framework import permissions
 
+from django.utils.decorators import method_decorator
+from django.views.decorators.cache import cache_page
+from django.views.decorators.vary import vary_on_headers
+
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.request import Request
@@ -21,6 +25,8 @@ class CartViewSet(mixins.RetrieveModelMixin,
     queryset = Cart.objects.all()
     permission_classes = [permissions.IsAuthenticated]
 
+    @method_decorator(cache_page(30))
+    @method_decorator(vary_on_headers('Authorization'))
     def retrieve(self, request: Request, *args, **kwargs):
         instance: Cart = self.get_object()
         if request.user.id != instance.customer.id:
@@ -69,6 +75,7 @@ class SaleViewSet(mixins.ListModelMixin,
 
         return price_history.price
 
+    @method_decorator(cache_page(60))
     def list(self, request: Request, *args, **kwargs):
         instance: Sale = self.get_object()
         if request.user.id != instance.customer.id:
@@ -79,6 +86,8 @@ class SaleViewSet(mixins.ListModelMixin,
 
         return super().list(request, *args, **kwargs)
 
+    @method_decorator(cache_page(60))
+    @method_decorator(vary_on_headers('Authorization'))
     def retrieve(self, request: Request, *args, **kwargs):
         instance: Sale = self.get_object()
         if request.user.id != instance.customer.id:
