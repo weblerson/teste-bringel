@@ -8,6 +8,9 @@ from products.models import Product
 
 class Cart(models.Model):
 
+    class Meta:
+        ordering = ['id']
+
     customer = models.OneToOneField(Customer, on_delete=models.CASCADE)
     products = models.ManyToManyField(Product)
 
@@ -16,6 +19,9 @@ class Cart(models.Model):
 
 
 class Sale(models.Model):
+
+    class Meta:
+        ordering = ['id']
 
     class Payment(models.IntegerChoices):
         PIX = 1, _('Pix'),
