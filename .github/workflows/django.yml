@@ -1,5 +1,9 @@
 name: Django CI
 
+env:
+  SECRET_KEY: 'actions-secret-key'
+  DEBUG: true
+
 on:
   push:
     branches: [ "master", "dev" ]
