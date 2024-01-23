@@ -34,3 +34,8 @@ class Product(models.Model):
             raise ValidationError({
                 'products': _('Each product must be associated with at least one price.')
             })
+
+        return super().clean()
+
+    def __str__(self) -> str:
+        return _(f'{self.name} - {self.sku}')
