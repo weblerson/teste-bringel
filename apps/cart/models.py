@@ -29,7 +29,7 @@ class Sale(models.Model):
         DEBIT = 3, _('Debit')
 
     customer = models.ForeignKey(Customer, on_delete=models.DO_NOTHING)
-    products = models.ManyToManyField(Product)
+    products = models.ManyToManyField(Product, blank=True)
 
     total = models.IntegerField()
     delivery_address = models.CharField(max_length=64)
