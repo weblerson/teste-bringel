@@ -179,13 +179,13 @@ LOGGING = {
         'info_file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
-            'filename': './logs/info.log',
+            'filename': './info.log',
             'formatter': 'simple',
         },
         'error_file': {
             'level': 'ERROR',
             'class': 'logging.FileHandler',
-            'filename': './logs/errors.log',
+            'filename': './errors.log',
             'formatter': 'verbose',
         },
     },
