@@ -12,7 +12,7 @@ class Cart(models.Model):
         ordering = ['id']
 
     customer = models.OneToOneField(Customer, on_delete=models.CASCADE)
-    products = models.ManyToManyField(Product)
+    products = models.ManyToManyField(Product, blank=True)
 
     def __str__(self) -> str:
         return _(f'Cart of {self.customer.username}')
