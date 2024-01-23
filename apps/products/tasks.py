@@ -3,20 +3,20 @@ from django.db.models import Avg
 from celery import shared_task
 
 from .utils import SkuUtils
+from . import serializers
 
 
 @shared_task(max_retries=3)
 def update_product_average_review(product_id: int):
 
     from .models import Product, Review
-    from .serializers import ProductSerializer
 
     product: Product = Product.objects.get(pk=product_id)
     reviews = Review.objects.filter(product__pk=product_id)
 
     average_review = reviews.aggregate(Avg('value')).get('value__avg')
 
-    serializer: ProductSerializer = ProductSerializer()
+    serializer: serializers.ProductSerializer = serializers.ProductSerializer()
     serializer.update(product, {'average_review': average_review})
 
     return True
