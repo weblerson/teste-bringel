@@ -37,7 +37,8 @@ class CartSerializerTests(test.APITestCase):
             'name': 'Test Science Product',
             'description': 'Test description',
             'category': Product.Category.SCIENCE,
-            'supplier': supplier.id
+            'supplier': supplier.id,
+            'price': 100
         }
         product_serializer: ProductSerializer = ProductSerializer(data=product_data)
         product_serializer.is_valid()

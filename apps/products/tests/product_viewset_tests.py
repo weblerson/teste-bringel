@@ -43,7 +43,8 @@ class ProductViewSetTests(test.APITestCase):
             'name': 'Test Product',
             'description': 'Test description',
             'category': Product.Category.SCIENCE,
-            'supplier': supplier.id
+            'supplier': supplier.id,
+            'price': 200
         }
         serializer: ProductSerializer = ProductSerializer(data=default_product_data)
         serializer.is_valid()
@@ -54,7 +55,8 @@ class ProductViewSetTests(test.APITestCase):
             'name': 'Product X',
             'description': 'Test description',
             'category': Product.Category.SCIENCE,
-            'supplier': supplier.id
+            'supplier': supplier.id,
+            'price': 100
         }
 
         cls.update_product_data = {

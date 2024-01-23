@@ -37,13 +37,15 @@ class SaleSerializerTests(test.APITestCase):
             'name': 'Test Science Product',
             'description': 'Test description',
             'category': Product.Category.SCIENCE,
-            'supplier': supplier.id
+            'supplier': supplier.id,
+            'price': 100
         }
         second_product_data = {
             'name': 'Test Fiction Product',
             'description': 'Test description',
             'category': Product.Category.FICTION,
-            'supplier': supplier.id
+            'supplier': supplier.id,
+            'price': 200
         }
         product_serializer: ProductSerializer = ProductSerializer(
             data=[first_product_data, second_product_data],
@@ -59,7 +61,7 @@ class SaleSerializerTests(test.APITestCase):
 
         cls.test_data = {
             'customer': customer.id,
-            'total': first_price + second_price,
+            'total': first_price.price + second_price.price,
             'delivery_address': 'Test Street',
             'payment_method': Sale.Payment.CREDIT
         }

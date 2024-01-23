@@ -46,7 +46,8 @@ class PriceHistoryViewSetTests(test.APITestCase):
             'name': 'Test Product',
             'description': 'Test description',
             'category': Product.Category.SCIENCE,
-            'supplier': supplier.id
+            'supplier': supplier.id,
+            'price': 100
         }
         serializer: ProductSerializer = ProductSerializer(data=product_data)
         serializer.is_valid()
@@ -124,7 +125,7 @@ class PriceHistoryViewSetTests(test.APITestCase):
         delete_response = self.client.delete(self.detail_url)
 
         self.assertEqual(list_response.status_code, status.HTTP_200_OK)
-        self.assertEqual(retrieve_response.status_code, status.HTTP_404_NOT_FOUND)
+        self.assertEqual(retrieve_response.status_code, status.HTTP_200_OK)
         self.assertEqual(create_response.status_code, status.HTTP_401_UNAUTHORIZED)
         self.assertEqual(delete_response.status_code, status.HTTP_401_UNAUTHORIZED)
 

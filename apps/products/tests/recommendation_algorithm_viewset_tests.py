@@ -30,28 +30,24 @@ class RecommendationAlgorithmViewSetTests(test.APITestCase):
             'name': 'first science product',
             'description': 'Test description',
             'category': Product.Category.SCIENCE,
-            'supplier': supplier.id
+            'supplier': supplier.id,
+            'price': 100
         }
 
         cls.second_product = {
             'name': 'second science product',
             'description': 'Test description',
             'category': Product.Category.SCIENCE,
-            'supplier': supplier.id
+            'supplier': supplier.id,
+            'price': 150
         }
 
         cls.third_product = {
             'name': 'fiction product',
             'description': 'Test description',
             'category': Product.Category.FICTION,
-            'supplier': supplier.id
-        }
-
-        cls.fourth_product = {
-            'name': 'didactic product',
-            'description': 'Test description',
-            'category': Product.Category.DIDACTIC,
-            'supplier': supplier.id
+            'supplier': supplier.id,
+            'price': 40
         }
 
     @staticmethod

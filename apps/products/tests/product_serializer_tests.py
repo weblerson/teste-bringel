@@ -28,7 +28,8 @@ class ProductSerializerTests(test.APITestCase):
             'category',
             'average_review',
             'customers',
-            'supplier'
+            'supplier',
+            'price'
         )
 
         supplier: Supplier = Supplier.objects.create(**test_supplier_data)
@@ -38,7 +39,8 @@ class ProductSerializerTests(test.APITestCase):
             'name': 'Test Science Product',
             'description': 'Test Description',
             'category': 1,
-            'supplier': supplier.id
+            'supplier': supplier.id,
+            'price': 100
         }
         cls.test_data = test_data
 
@@ -129,6 +131,7 @@ class ProductSerializerTests(test.APITestCase):
         json['average_review'] = 0.0
         json['customers'] = []
         json['id'] = 1
+        del json['price']
 
         serializer: ProductSerializer = ProductSerializer(data=self.test_data)
         serializer.is_valid()

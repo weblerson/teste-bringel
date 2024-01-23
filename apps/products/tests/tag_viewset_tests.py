@@ -46,7 +46,8 @@ class TagViewSetTests(test.APITestCase):
             'name': 'Test Product',
             'description': 'Test description',
             'category': Product.Category.SCIENCE,
-            'supplier': supplier.id
+            'supplier': supplier.id,
+            'price': 100
         }
         serializer: ProductSerializer = ProductSerializer(data=product_data)
         serializer.is_valid()
