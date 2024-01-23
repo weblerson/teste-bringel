@@ -19,7 +19,14 @@ class CartViewSet(mixins.RetrieveModelMixin,
                   viewsets.GenericViewSet):
 
     queryset = Cart.objects.all()
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAuthenticated]
+
+    def retrieve(self, request: Request, *args, **kwargs):
+        instance: Cart = self.get_object()
+        if request.user.id != instance.customer.id:
+            return Response(status=status.HTTP_403_FORBIDDEN)
+
+        return self.retrieve(request, *args, **kwargs)
 
     def create(self, request: Request, *args, **kwargs):
         customer_id = request.data.get('customer')
@@ -51,7 +58,7 @@ class SaleViewSet(mixins.ListModelMixin,
                   viewsets.GenericViewSet):
 
     queryset = Sale.objects.all()
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [permissions.IsAuthenticated]
 
     @staticmethod
     def __get_product_price(product_id: int):
