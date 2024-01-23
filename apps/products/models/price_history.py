@@ -1,12 +1,13 @@
 from django.db import models
 
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext as _
 
 
 class PriceHistory(models.Model):
 
     class Meta:
         ordering = ['start']
+        verbose_name_plural = _('Price histories')
 
     product = models.ForeignKey('products.Product', on_delete=models.CASCADE, blank=False)
     price = models.IntegerField()

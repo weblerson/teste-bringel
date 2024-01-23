@@ -14,7 +14,7 @@ class PriceHistorySerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         product: Product = validated_data.get('product')
 
-        price_history = PriceHistory.objects.filter(product=product).order_by('start')
+        price_history = PriceHistory.objects.filter(product=product).order_by('-start')
         if price_history.exists():
             last: PriceHistory = price_history.last()
             last.end = timezone.now()
