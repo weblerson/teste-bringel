@@ -20,6 +20,15 @@ class CartSerializer(serializers.ModelSerializer):
         fields = ['id', 'customer', 'product']
 
 
+class SaleRequestSerializer(serializers.ModelSerializer):
+
+    products = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all(), many=True)
+
+    class Meta:
+        model = models.Sale
+        fields = ['customer', 'products', 'delivery_address', 'payment_method']
+
+
 class SaleSerializer(serializers.ModelSerializer):
 
     class Meta:
