@@ -39,6 +39,10 @@ jobs:
           pip install --upgrade pip poetry
           poetry install
 
+      - name: Start Celery Worker
+        run: |
+          poetry run celery -A core worker -l INFO
+
       - name: Run Tests
         run: |
           poetry run python3.12 manage.py test apps
