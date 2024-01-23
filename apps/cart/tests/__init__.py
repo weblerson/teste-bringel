@@ -1,1 +1,2 @@
 from .cart_serializer_tests import CartSerializerTests
+from .sale_serializer_tests import SaleSerializerTests
