@@ -3,7 +3,7 @@ name: Django CI
 env:
   SECRET_KEY: 'actions-secret-key'
   DEBUG: true
-  CELERY_BROKER_URL: 'redis://broker:6379/'
+  CELERY_BROKER_URL: 'redis://localhost:6379/'
 
 on:
   push:
