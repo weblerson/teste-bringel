@@ -1,7 +1,13 @@
 from rest_framework import test
 
-from ..models import Product, Supplier
-from ..serializers import ProductSerializer
+from unittest.mock import patch
+
+from ..models import Product, Supplier, Review
+from authentication.models import Customer
+from authentication.serializers import CustomerSerializer
+from ..serializers import ProductSerializer, ReviewSerializer
+
+from ..tasks import update_product_average_review
 
 
 class ProductSerializerTests(test.APITestCase):
@@ -130,9 +136,70 @@ class ProductSerializerTests(test.APITestCase):
 
         self.assertDictEqual(json, serializer.data)
 
-    def test_if_product_serializer_is_updating_average_review(self):
+    @patch('products.tasks.serializers.ProductSerializer.update')
+    def test_if_product_serializer_is_updating_average_review(self, serializer_update):
         """
         Tests if product serializer is updating the product's average review automatically
         """
+        product_serializer: ProductSerializer = ProductSerializer(data=self.test_data)
+        customer_serializer: CustomerSerializer = CustomerSerializer(data={
+            'username': 'John',
+            'email': 'john@john.dev',
+            'password': 'john',
+            'is_staff': False
+        })
+        product_serializer.is_valid()
+        customer_serializer.is_valid()
 
-        ...
+        product: Product = product_serializer.save()
+        customer: Customer = customer_serializer.save()
+
+        review_serializer: ReviewSerializer = ReviewSerializer(data={
+            'product': product.id,
+            'customer': customer.id,
+            'value': 4.0
+        })
+        review_serializer.is_valid()
+        review_serializer.save()
+
+        update_product_average_review(product.id)
+        serializer_update.assert_called_with(product, {'average_review': 4.0})
+
+    @patch('products.tasks.serializers.ProductSerializer.update')
+    def test_if_product_serializer_is_updating_average_review_when_a_review_value_is_updated(
+            self,
+            serializer_update
+    ):
+        """
+        Tests if product serializer is updating the product's average review automatically
+        when a review value is updated
+        """
+
+        product_serializer: ProductSerializer = ProductSerializer(data=self.test_data)
+        customer_serializer: CustomerSerializer = CustomerSerializer(data={
+            'username': 'John',
+            'email': 'john@john.dev',
+            'password': 'john',
+            'is_staff': False
+        })
+        product_serializer.is_valid()
+        customer_serializer.is_valid()
+
+        product: Product = product_serializer.save()
+        customer: Customer = customer_serializer.save()
+
+        review_serializer: ReviewSerializer = ReviewSerializer(data={
+            'product': product.id,
+            'customer': customer.id,
+            'value': 4.0
+        })
+        review_serializer.is_valid()
+        review: Review = review_serializer.save()
+
+        update_product_average_review(product.id)
+        serializer_update.assert_called_with(product, {'average_review': 4.0})
+
+        review_serializer.update(review, {'value': 3.0})
+
+        update_product_average_review(product.id)
+        serializer_update.assert_called_with(product, {'average_review': 3.0})

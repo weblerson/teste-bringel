@@ -120,10 +120,10 @@ class ReviewSerializerTests(test.APITestCase):
 
         self.assertDictEqual(expected_json, serializer.data)
 
-    @patch('products.tasks.update_product_average_review.delay')
+    @patch('products.tasks.serializers.ProductSerializer.update')
     def test_if_the_average_review_changes_automatically_when_another_review_instance_is_created(
             self,
-            update_product_average_review_mock
+            serializer_update
     ):
         """
         Tests if the average review of a product changes automatically when another review instance is created
@@ -132,16 +132,14 @@ class ReviewSerializerTests(test.APITestCase):
         first_review: Review = self.__create_review_instance(self.test_data)
         product: Product = Product.objects.get(pk=first_review.product.id)
 
-        update_product_average_review_mock.assert_called_once_with(first_review.product.id)
+        update_product_average_review(product.id)
 
-        self.assertEqual(first_review.product, product)
-        self.assertEqual(product.average_review, self.test_data.get('value'))
+        serializer_update.assert_called_with(product, {'average_review': self.test_data.get('value')})
 
-        # self.__create_review_instance(self.new_review_test_data)
-        # product: Product = Product.objects.get(pk=first_review.product.id)
-        #
-        # update_product_average_review(first_review.product.id)
-        #
-        # average = (self.test_data.get('value') + self.new_review_test_data.get('value')) / 2
-        # self.assertEqual(first_review.product, product)
-        # self.assertEqual(product.average_review, average)
+        self.__create_review_instance(self.new_review_test_data)
+        Product.objects.get(pk=first_review.product.id)
+
+        average = (self.test_data.get('value') + self.new_review_test_data.get('value')) / 2
+
+        update_product_average_review(first_review.product.id)
+        serializer_update.assert_called_with(product, {'average_review': average})
