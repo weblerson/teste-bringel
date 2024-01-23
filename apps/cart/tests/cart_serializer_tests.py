@@ -44,7 +44,7 @@ class CartSerializerTests(test.APITestCase):
         product_serializer.is_valid()
         product: Product = product_serializer.save()
 
-        cls.fields = ('id', 'customer', 'products')
+        cls.fields = ('id', 'customer', 'product')
         cls.customer = customer
         cls.product = product
 
