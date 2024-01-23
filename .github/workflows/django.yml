@@ -23,6 +23,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          pip install --upgrade pip poetry
           poetry install
 
       - name: Run Tests
