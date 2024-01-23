@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'spectacular_swagger',
     'authentication',
     'products',
+    'cart',
 
     # Third
     'rest_framework',
