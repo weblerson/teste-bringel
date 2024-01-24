@@ -3,6 +3,7 @@ from rest_framework import viewsets
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework import permissions
 
 from rest_framework.decorators import action
 
@@ -24,3 +25,13 @@ class AuthenticationViewSet(viewsets.ViewSet):
             'refresh': str(refresh),
             'access': str(refresh.access_token)
         }, status=status.HTTP_200_OK)
+
+    def get_permissions(self):
+        match self.action:
+            case 'generate_jwt_token_for_customer':
+                permission_classes = [permissions.IsAuthenticated]
+
+            case _:
+                permission_classes = [permissions.AllowAny]
+
+        return [permission() for permission in permission_classes]
