@@ -11,8 +11,6 @@ from .models import Customer
 from cart.models import Cart
 from cart.serializers import CartSerializer
 
-from .validators import no_whitespaces_validator
-
 
 class CustomerSerializer(serializers.ModelSerializer):
 
