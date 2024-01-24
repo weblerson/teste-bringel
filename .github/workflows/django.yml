@@ -51,6 +51,15 @@ jobs:
           poetry run celery -A core worker -l INFO &
           sleep 10
 
+      - name: Start Django Application
+        run: |
+          poetry run python3.12 manage.py runserver &
+          sleep 10
+
+      - name: Run Stress Tests
+        run: |
+          poetry run locust --headless --users 100 --spawn-rate 5 -t 30s -H http://localhost:8000
+
       - name: Run Tests
         run: |
           poetry run python3.12 manage.py test apps
