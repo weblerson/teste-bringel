@@ -11,8 +11,8 @@ class Command(BaseCommand):
     help = _('Creates a project admin customer')
 
     def add_arguments(self, parser):
-        parser.add_argument('username', type=str)
-        parser.add_argument('password', type=str)
+        parser.add_argument('--username', type=str, required=True)
+        parser.add_argument('--password', type=str, required=True)
 
     def handle(self, *args, **options):
         if models.Customer.objects.filter(username=options['username']).exists():
