@@ -85,8 +85,9 @@ class OAuthApiViewLoadTests(HttpUser):
         }
 
         self.client.post(
-            url='/api/o/',
-            headers={'Content-Type': 'application/x-www-form-urlencoded'}
+            url='/api/o/custom/',
+            headers={'Content-Type': 'application/x-www-form-urlencoded'},
+            data=data
         )
 
 
