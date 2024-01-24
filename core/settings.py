@@ -95,12 +95,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('POSTGRES_DB', cast=str),
+        'NAME': config('POSTGRES_USER', cast=str),
         'USER': config('POSTGRES_USER', cast=str),
         'PASSWORD': config('POSTGRES_PASSWORD', cast=str),
         'HOST': config('POSTGRES_HOST', cast=str),
         'PORT': config('POSTGRES_PORT', cast=int),
-    } if os.environ['DJANGO_SETTINGS_MODULE'] == 'core.settings.homo' else {
+    } if config('DJANGO_PROFILE', cast=str) == 'homo' else {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
