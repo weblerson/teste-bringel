@@ -2,10 +2,6 @@ from rest_framework import serializers
 
 from django.db import transaction, DatabaseError
 
-from django.utils.translation import gettext_lazy as _
-
-import re
-
 from .models import Customer
 
 from cart.models import Cart
@@ -44,7 +40,8 @@ class CustomerSerializer(serializers.ModelSerializer):
         customer: Customer = Customer.objects.create_user(
             username=validated_data.get('username'),
             email=validated_data.get('email'),
-            password=validated_data.get('password')
+            password=validated_data.get('password'),
+            is_staff=validated_data.get('is_staff')
         )
 
         cart: Cart = self.__create_cart_for_user(customer_id=customer.id)
