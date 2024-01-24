@@ -1,0 +1,8 @@
+.github/*
+ipython/*
+*.sqlite3
+
+*.log
+.env
+
+drf-db/*

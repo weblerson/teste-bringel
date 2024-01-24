@@ -1,0 +1,78 @@
+version: "3"
+
+services:
+  drf:
+    container_name: drf
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    command: >
+      sh -c "python3.12 manage.py migrate &&
+             python3.12 manage.py createcachetable &&
+             python3.12 manage.py runserver 0.0.0.0:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+      worker:
+        condition: service_healthy
+    env_file:
+      - dev.env
+    ports:
+      - "8000:8000"
+    networks:
+      - drf-network
+
+  db:
+    container_name: postgresql
+    image: postgres:alpine
+    volumes:
+      - ./drf-db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "5432:5432"
+    networks:
+      - drf-network
+
+  broker:
+    container_name: redis
+    image: redis:alpine
+    healthcheck:
+      test: [ "CMD", "redis-cli","ping" ]
+    networks:
+      - drf-network
+
+  worker:
+    container_name: worker
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - dev.env
+    volumes:
+      - .:/app
+    command: celery -A core worker -l INFO
+    healthcheck:
+      test: [ "CMD-SHELL", "celery -A core inspect ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    depends_on:
+      db:
+        condition: service_healthy
+      broker:
+        condition: service_healthy
+    networks:
+      - drf-network
+
+networks:
+  drf-network:
+    driver: bridge
