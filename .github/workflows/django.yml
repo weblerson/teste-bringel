@@ -4,6 +4,7 @@ env:
   SECRET_KEY: 'actions-secret-key'
   DEBUG: true
   CELERY_BROKER_URL: 'redis://localhost:6379/'
+  DJANGO_PROFILE: 'dev'
 
 on:
   push:
