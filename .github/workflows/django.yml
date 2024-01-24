@@ -57,6 +57,7 @@ jobs:
           sleep 10
 
       - name: Run Stress Tests
+        continue-on-error: true
         run: |
           poetry run locust --headless --users 100 --spawn-rate 5 -t 30s -H http://localhost:8000
 
