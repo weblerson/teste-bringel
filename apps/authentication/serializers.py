@@ -2,10 +2,16 @@ from rest_framework import serializers
 
 from django.db import transaction, DatabaseError
 
+from django.utils.translation import gettext_lazy as _
+
+import re
+
 from .models import Customer
 
 from cart.models import Cart
 from cart.serializers import CartSerializer
+
+from .validators import no_whitespaces_validator
 
 
 class CustomerSerializer(serializers.ModelSerializer):
@@ -28,6 +34,13 @@ class CustomerSerializer(serializers.ModelSerializer):
             return None
 
         return serializer.save()
+
+    @staticmethod
+    def validate_password(value):
+        if ' ' in value:
+            raise serializers.ValidationError('Password must not have any whitespaces')
+
+        return value
 
     def create(self, validated_data):
         customer: Customer = Customer.objects.create_user(
