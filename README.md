@@ -40,7 +40,7 @@ Mas o administrador da loja pode.
 Além de só permitir acesso a certas funcionalidades com permissões extras, o sistema também impede que
 clientes comuns tenham mais poder do que deveriam!
 
-Por exemplo: um cliente não poder adicionar um produto no carrinho de outro cliente, ou até mesmo
+Por exemplo: um cliente não pode adicionar um produto no carrinho de outro cliente, ou até mesmo
 acessar o carrinho deste outro usuário.
 
 Agora, se você não está autenticado no sistema, também não tem problema! Você ainda tem acesso a ações
