@@ -48,7 +48,7 @@ jobs:
       - name: Start Celery Worker
         run: |
           poetry run celery -A core worker -l INFO &
-          sleep 120
+          sleep 10
 
       - name: Run Tests
         run: |
