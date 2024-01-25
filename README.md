@@ -58,9 +58,12 @@ do sistema e como se relacionam são encontrados no seguinte diagrama:
 
 # Execução
 ### Algumas orientações:
-__Certifique-se que possui o Docker e Docker Compose instalados com os seguinte comandos:__
+__Certifique-se que possui o Docker e Docker Compose e o Git instalados com os seguinte comandos:__
 
 ```shell
+git version
+# git version 2.25.1
+
 docker -v
 # Docker version 25.0.0, build e758fe5
 
@@ -69,6 +72,25 @@ docker compose version
 ```
 
 Caso não estejam instalados, instale o __docker engine__ clicando [AQUI](https://docs.docker.com/engine/install/).
+
+E o __Git__ clicando [AQUI](https://git-scm.com/downloads)
+
+## Clonagem do Repositório
+O primeiro passo a ser seguido é: clonar o repositório.
+
+Para isso, basta abrir seu terminal e digitar o seguinte comando:
+```shell
+# SSH url
+git clone git@github.com:weblerson/teste-bringel.git
+```
+ou (caso use HTTPs)
+```shell
+# HTTPs url
+git clone https://github.com/weblerson/teste-bringel.git
+```
+
+Agora só navegar até a raiz do projeto (diretório onde está localizado o arquivo *__manage.py__*)
+para as próximas etapas.
 
 ### Subir o Ambiente
 Antes de poder utilizar a aplicação, é necessário usar o docker para subir os serviços. Para isso,
