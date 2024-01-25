@@ -53,6 +53,7 @@ Essa é a visão geral de todos os modelos da aplicação. Mais detalhes sobre o
 do sistema e como se relacionam são encontrados no seguinte diagrama:
 
 ![uml](./assets/img/3.png)
+![enums](./assets/img/15.png)
 
 
 # Execução
